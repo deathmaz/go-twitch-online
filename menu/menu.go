@@ -17,6 +17,7 @@ func MainMenu(sl stream.StreamList) {
 		fmt.Println("What would you like to do?")
 		fmt.Println("1. Play stream")
 		fmt.Println("2. Refetch data")
+		fmt.Println("3. Show only live streams")
 		fmt.Println("")
 		fmt.Println("Enter selection:")
 
@@ -26,6 +27,8 @@ func MainMenu(sl stream.StreamList) {
 			playStream(sl)
 		case "2":
 			sl.FetchAndShow()
+		case "3":
+			sl.ShowOnlyLive()
 		}
 	}
 }
