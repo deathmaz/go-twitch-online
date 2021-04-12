@@ -36,7 +36,10 @@ func FetchDataForStream(link string, c chan FetchedData) {
 	script := doc.Find("script[type='application/ld+json']")
 	type node map[string]interface{}
 	var resJson []node
-	json.Unmarshal([]byte(script.Text()), &resJson)
+	jsonError := json.Unmarshal([]byte(script.Text()), &resJson)
+	if jsonError != nil {
+		fmt.Println("Error while parsing json", jsonError)
+	}
 	var isLive bool
 	if resJson[0]["publication"] != nil {
 		publication := resJson[0]["publication"].(map[string]interface{})

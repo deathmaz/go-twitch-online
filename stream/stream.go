@@ -30,7 +30,8 @@ func (s Stream) show() {
 	}
 	linkText := color.New(color.FgBlue, color.Underline)
 	indexText := color.New(color.FgGreen, color.Bold)
-	fmt.Println(fmt.Sprintf("%s %s is %s", indexText.Sprintf("%d.", s.Index), linkText.Sprintf("%s", s.URL), statusText))
+	fmt.Printf("%s %s is %s", indexText.Sprintf("%d.", s.Index), linkText.Sprintf("%s", s.URL), statusText)
+	fmt.Println("")
 
 	descriptionStyles := color.New(color.FgMagenta)
 	fmt.Println("Streaming:", descriptionStyles.Sprintf("%s", s.description))
