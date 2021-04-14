@@ -11,7 +11,7 @@ func main() {
 	userList := config.ReadConfig()
 
 	c := make(chan api.FetchedData)
-	streamList := stream.StreamList{
+	streamList := stream.List{
 		Channel: c,
 	}
 	streamList.CreateFromIds(userList)

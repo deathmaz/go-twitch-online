@@ -16,7 +16,7 @@ type Stream struct {
 	Index       int
 }
 
-type StreamList struct {
+type List struct {
 	Inner   []Stream
 	Channel chan api.FetchedData
 }
@@ -38,7 +38,7 @@ func (s Stream) show() {
 	fmt.Println("")
 }
 
-func (sl *StreamList) CreateFromIds(ids []string) {
+func (sl *List) CreateFromIds(ids []string) {
 	for i, id := range ids {
 		sl.Inner = append(sl.Inner, Stream{
 			id:    id,
@@ -48,7 +48,7 @@ func (sl *StreamList) CreateFromIds(ids []string) {
 	}
 }
 
-func (sl *StreamList) FetchAll() {
+func (sl *List) FetchAll() {
 	fmt.Println("")
 	fmt.Println("Fetching all steams")
 	for _, stream := range sl.Inner {
@@ -67,7 +67,7 @@ func (sl *StreamList) FetchAll() {
 	}
 }
 
-func (sl StreamList) Show() {
+func (sl List) Show() {
 	fmt.Println("")
 	fmt.Println("Displaying all data")
 	sort.Slice(sl.Inner, func(i, j int) bool { return sl.Inner[i].isLive })
@@ -76,12 +76,12 @@ func (sl StreamList) Show() {
 	}
 }
 
-func (sl StreamList) FetchAndShow() {
+func (sl List) FetchAndShow() {
 	sl.FetchAll()
 	sl.Show()
 }
 
-func (sl StreamList) ShowOnlyLive() {
+func (sl List) ShowOnlyLive() {
 	fmt.Println("")
 	fmt.Println("Displaying all data")
 	sort.Slice(sl.Inner, func(i, j int) bool { return sl.Inner[i].isLive })

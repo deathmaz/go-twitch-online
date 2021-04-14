@@ -11,7 +11,7 @@ import (
 	"github.com/deathmaz/go-twitch-online/stream"
 )
 
-func MainMenu(sl stream.StreamList) {
+func MainMenu(sl stream.List) {
 	for {
 		fmt.Println("")
 		fmt.Println("What would you like to do?")
@@ -33,7 +33,7 @@ func MainMenu(sl stream.StreamList) {
 	}
 }
 
-func playStream(sl stream.StreamList) {
+func playStream(sl stream.List) {
 	sl.ShowOnlyLive()
 	fmt.Println("Enter video index:")
 	input := getInput()
