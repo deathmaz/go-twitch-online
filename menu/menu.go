@@ -48,7 +48,7 @@ func playStream(sl stream.List) {
 
 func playVideo(url string) error {
 	cmd := exec.Command("bash", "-c", "streamlink --player=mpv "+url)
-	err := cmd.Run()
+	err := cmd.Start()
 	if err != nil {
 		log.Fatal(err)
 	}
