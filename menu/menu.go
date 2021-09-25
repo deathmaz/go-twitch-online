@@ -26,7 +26,8 @@ func MainMenu(sl stream.List) {
 		case "1":
 			playStream(sl)
 		case "2":
-			sl.FetchAndShow()
+			sl.FetchAll()
+			playStream(sl)
 		case "3":
 			sl.ShowOnlyLive()
 		}
