@@ -16,7 +16,7 @@ func main() {
 	}
 	streamList.CreateFromIds(userList)
 	streamList.FetchAll()
-	streamList.Show()
+	menu.PlayStream(streamList)
 
 	menu.MainMenu(streamList)
 }

@@ -83,7 +83,7 @@ func (sl List) FetchAndShow() {
 
 func (sl List) ShowOnlyLive() {
 	fmt.Println("")
-	fmt.Println("Displaying all data")
+	fmt.Println("Displaying only live streams")
 	sort.Slice(sl.Inner, func(i, j int) bool { return sl.Inner[i].isLive })
 	for _, stream := range sl.Inner {
 		if stream.isLive {
