@@ -25,7 +25,12 @@ func FetchDataForStream(link string, c chan FetchedData) {
 
 	defer res.Body.Close()
 	if res.StatusCode != 200 {
-		log.Fatalf("status code error: %d %s", res.StatusCode, res.Status)
+        c <- FetchedData{
+            URL: link,
+            Description: fmt.Sprintf("There was an error while fetching stream: %d %s", res.StatusCode, res.Status),
+            IsLive: false,
+        };
+        return
 	}
 	// Load the HTML document
 	doc, err := goquery.NewDocumentFromReader(res.Body)
