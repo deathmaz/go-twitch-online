@@ -28,7 +28,7 @@ func (s Stream) show() {
 		statusStyles = color.New(color.FgGreen, color.Bold)
 		statusText = statusStyles.Sprintf("%s", "live")
 	}
-	linkText := color.New(color.FgBlue, color.Underline)
+	linkText := color.New(color.FgBlue, color.Bold)
 	indexText := color.New(color.FgGreen, color.Bold)
 	fmt.Printf("%s %s is %s", indexText.Sprintf("%d.", s.Index), linkText.Sprintf("%s", s.URL), statusText)
 	fmt.Println("")
